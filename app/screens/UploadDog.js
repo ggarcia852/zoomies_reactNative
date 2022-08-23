@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
 import CameraPermission from "../components/CameraPermission";
 
 export default function UploadDog() {
@@ -24,6 +23,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   cameraContainer: {
-    // flex: 4,
+    flex: 5,
   },
 });

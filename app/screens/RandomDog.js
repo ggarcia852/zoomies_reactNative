@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
+import { useState, useEffect } from "react";
+import { View, Text, Image, Button, StyleSheet } from "react-native";
 
 export default function RandomDog() {
   const [randomDog, setRandomDog] = useState();
@@ -16,7 +16,7 @@ export default function RandomDog() {
   }, [randomDog]);
 
   const getRandomDog = () => {
-    fetch('https://dog.ceo/api/breeds/image/random')
+    fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => response.json())
       .then((data) => setRandomDog(data.message))
       .catch((e) => console.log(e));
@@ -71,7 +71,7 @@ export default function RandomDog() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
   },
   heading: {
     fontSize: 30,
@@ -80,20 +80,20 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   image: {
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   text: {
-    textAlign: 'center',
+    textAlign: "center",
     paddingTop: 15,
     fontSize: 20,
   },
   buttonContainer: {
     flex: 1,
-    width: '60%',
+    width: "60%",
   },
   button: {
     marginBottom: 20,

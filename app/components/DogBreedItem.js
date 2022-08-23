@@ -11,7 +11,7 @@ export default function DogBreedItem({ breed, navigation }) {
       .then((data) => setDogImage(data.message[0]))
       .catch((e) => console.log(e));
   }, []);
-  
+
   return (
     <View style={styles.container}>
       <Image
