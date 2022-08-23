@@ -31,7 +31,7 @@ export default function Home({ navigation }) {
       </View>
       <View style={styles.imageContainer}>
         <TouchableOpacity
-          onPress={() => alert("What can I code for you today?")}
+          onPress={() => alert("Bark on!")}
         >
           <Image
             style={styles.dogImage}
