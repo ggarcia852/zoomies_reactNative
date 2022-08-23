@@ -51,6 +51,13 @@ export default function Home({ navigation }) {
           <Image source={pawThumbnail} />
           <Text style={styles.text}>Search Breeds</Text>
         </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => navigation.navigate("UploadDog")}
+        >
+          <Image source={pawThumbnail} />
+          <Text style={styles.text}>Upload Dog</Text>
+        </Pressable>
       </View>
     </>
   );

@@ -6,10 +6,11 @@ import Home from "../screens/Home";
 import RandomDog from "../screens/RandomDog";
 import Search from "../screens/Search";
 import SelectedDog from "../screens/SelectedDog";
+import UploadDog from "../screens/UploadDog";
 
 export default function Navigator() {
   const [dogs, setDogs] = React.useState([]);
-  
+
   React.useEffect(() => {
     fetch("https://dog.ceo/api/breeds/list/all")
       .then((response) => response.json())
@@ -48,6 +49,11 @@ export default function Navigator() {
           component={Search}
           initialParams={{ dogs }}
           options={{ title: "Search Breeds" }}
+        />
+        <Stack.Screen
+          name="UploadDog"
+          component={UploadDog}
+          options={{ title: "Upload Dog" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
