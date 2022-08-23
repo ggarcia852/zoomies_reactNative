@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image, Button, StyleSheet } from "react-native";
+import { useState, useEffect } from 'react';
+import { View, Text, Image, Button, StyleSheet } from 'react-native';
 
 export default function RandomDog() {
   const [randomDog, setRandomDog] = useState();
   const [dogName, setDogName] = useState();
   const [showBreed, setShowBreed] = useState(false);
-
-  const getRandomDog = () => {
-    fetch("https://dog.ceo/api/breeds/image/random")
-      .then((response) => response.json())
-      .then((data) => setRandomDog(data.message))
-      .catch((e) => console.log(e));
-  };
 
   useEffect(() => {
     getRandomDog();
@@ -21,6 +14,13 @@ export default function RandomDog() {
     getDogBreed();
     setShowBreed(false);
   }, [randomDog]);
+
+  const getRandomDog = () => {
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then((response) => response.json())
+      .then((data) => setRandomDog(data.message))
+      .catch((e) => console.log(e));
+  };
 
   const getDogBreed = () => {
     const breedRegex = /[a-zA-Z]+/;
@@ -40,7 +40,7 @@ export default function RandomDog() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Guess the random dog breed!</Text>
+      <Text style={styles.heading}>What breed am I?</Text>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -51,19 +51,19 @@ export default function RandomDog() {
           }}
         />
       </View>
-      <View>
+      <View style={styles.buttonContainer}>
         <View style={styles.button}>
           <Button title="New Random Dog" onPress={getRandomDog} />
         </View>
         <View>
           <Button title="Show breed" onPress={handleShowBreed} />
         </View>
+        {showBreed && (
+          <Text style={styles.text}>
+            {dogName[0][0].toUpperCase() + dogName[0].substring(1)}
+          </Text>
+        )}
       </View>
-      {showBreed && (
-        <Text style={styles.text}>
-          {dogName[0][0].toUpperCase() + dogName[0].substring(1)}
-        </Text>
-      )}
     </View>
   );
 }
@@ -71,29 +71,31 @@ export default function RandomDog() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
   },
   heading: {
-    // flex: 3,
     fontSize: 30,
     paddingTop: 20,
     marginBottom: 10,
   },
   imageContainer: {
-    // height: 500,
-    // flex: 2,
+    flex: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
   text: {
-    paddingTop: 25,
-    fontSize: 30,
+    textAlign: 'center',
+    paddingTop: 15,
+    fontSize: 20,
   },
   buttonContainer: {
-    // flex: 1,
+    flex: 1,
+    width: '60%',
   },
   button: {
-    margin: 20,
+    marginBottom: 20,
   },
 });

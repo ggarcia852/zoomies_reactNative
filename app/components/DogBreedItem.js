@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 export default function DogBreedItem({ breed, navigation }) {
   const [dogImage, setDogImage] = useState();
   const dogBreed = breed[0];
+
   useEffect(() => {
     fetch(`https://dog.ceo/api/breed/${dogBreed}/images`)
       .then((response) => response.json())
       .then((data) => setDogImage(data.message[0]))
       .catch((e) => console.log(e));
   }, []);
+  
   return (
     <View style={styles.container}>
       <Image
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   item: {
-    fontSize: 40,
+    fontSize: 35,
     color: "black",
     marginRight: 10,
     marginLeft: 10,

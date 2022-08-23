@@ -9,6 +9,7 @@ import SelectedDog from "../screens/SelectedDog";
 
 export default function Navigator() {
   const [dogs, setDogs] = React.useState([]);
+  
   React.useEffect(() => {
     fetch("https://dog.ceo/api/breeds/list/all")
       .then((response) => response.json())

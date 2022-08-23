@@ -1,11 +1,10 @@
-import React from "react";
-import DogBreedItem from "../components/DogBreedItem";
 import { View, FlatList } from "react-native";
+import DogBreedItem from "../components/DogBreedItem";
 
 export default function DogBreedList({ navigation, route }) {
   const dogs = route.params.dogs;
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
         data={dogs}
         renderItem={({ item }) => (
